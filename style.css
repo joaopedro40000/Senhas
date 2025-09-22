@@ -1,17 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');
 
+/* Nova paleta de cores: Escura, digital e com um toque de brilho */
 :root {
-    --branco: white;
-    --cor-de-fundo: #4feec6;
-    --fundo-senha: #385f3a;
-    --fundo-texto: #324d37;
-    --borda: #1d5a2c;
+    --branco: #F4F7FF; /* Um branco suave para contraste em fundos escuros */
+    --cor-de-fundo: #0A0E18; /* Azul muito escuro, quase preto, para uma base tecnológica */
+    --fundo-secundario: #1E2838; /* Um tom de azul-cinza escuro para seções e caixas */
+    --borda: #2E3A52; /* Uma borda sutilmente mais clara */
+    --cor-destaque: #00E0FF; /* Azul elétrico para um brilho misterioso */
+    --cor-destaque-fraca: #90F0FF; /* Uma versão mais suave do azul de destaque */
     --roboto: 'Roboto', sans-serif;
     --roboto-mono: 'Roboto Mono', monospace;
 }
 
 * {
     font-weight: 400;
+    box-sizing: border-box;
 }
 
 body {
@@ -23,6 +26,10 @@ body {
 .titulo-principal {
     font-family: var(--roboto-mono);
     font-size: 32px;
+    color: var(--cor-destaque);
+    text-shadow: 0 0 5px var(--cor-destaque);
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .titulo-secundario {
@@ -36,39 +43,47 @@ body {
 
 .conteudo-senha {
     margin-top: 80px;
-    background: var(--fundo-senha);
+    background: var(--fundo-secundario);
     padding: 24px;
     border-bottom: 6px solid var(--borda);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 224, 255, 0.1);
 }
 
 #campo-senha {
-    background-color: var(--fundo-senha);
+    background-color: transparent;
     border: none;
-    color: var(--branco);
+    color: var(--cor-destaque-fraca);
     font-family: var(--roboto-mono);
     font-size: 40px;
     width: 70%;
+    caret-color: var(--cor-destaque);
 }
 
 #campo-senha:focus {
     outline: none;
+    text-shadow: 0 0 5px var(--cor-destaque-fraca);
 }
 
 .conteudo {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 .parametro {
-    background-color: var(--fundo-texto);
+    background-color: var(--fundo-secundario);
     border: 2px solid var(--borda);
     margin-top: 32px;
     padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 224, 255, 0.05);
 }
 
 .parametro-titulo {
     font-family: var(--roboto-mono);
     font-size: 28px;
+    color: var(--cor-destaque);
 }
 
 .parametro-senha__titulo {
@@ -89,15 +104,24 @@ body {
 .parametro-senha-botoes {
     display: flex;
     justify-content: center;
+    gap: 16px;
 }
 
 .parametro-senha__botao {
-    background-color: var(--fundo-texto);
-    color: var(--branco);
-    border: 2px solid var(--borda);
+    background-color: transparent;
+    color: var(--cor-destaque);
+    border: 2px solid var(--cor-destaque);
     padding: 24px;
     font-size: 24px;
     cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.parametro-senha__botao:hover {
+    background-color: var(--cor-destaque);
+    color: var(--cor-de-fundo);
+    box-shadow: 0 0 15px var(--cor-destaque);
 }
 
 .parametro-senha__texto {
@@ -116,32 +140,45 @@ label {
     width: 20px;
     height: 20px;
     cursor: pointer;
+    background-color: var(--fundo-secundario);
+    border: 2px solid var(--borda);
+    appearance: none;
+    position: relative;
+    border-radius: 4px;
+}
+
+.checkbox:checked {
+    background-color: var(--cor-destaque);
+    box-shadow: 0 0 5px var(--cor-destaque);
 }
 
 .barra {
-    background-color: var(--fundo-senha);
+    background-color: var(--fundo-secundario);
     height: 30px;
     width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 .forca {
     height: 30px;
     position: relative;
     bottom: 30px;
+    border-radius: 4px;
 }
 
 .fraca {
     width: 25%;
-    background-color: #E71B32;
+    background-color: #E71B32; /* Cor de perigo, mantida para clareza */
 }
 
 .media {
-    background-color: #FAF408;
+    background-color: #FAF408; /* Cor de alerta, mantida para clareza */
     width: 50%;
 }
 
 .forte {
-    background-color: #00FF85;
+    background-color: #00FF85; /* Cor de sucesso, mantida para clareza */
     width: 100%;
 }
 
